@@ -1,5 +1,5 @@
-const mealsByCategory = async (category){
-    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
+const mealsByCategory = async (category)=>{
+    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
     const response = await url
     if(response.status==200){
         const data = await response.json()
@@ -10,8 +10,8 @@ const mealsByCategory = async (category){
     }
 
 }
-const mealsByArea = async (area){
-    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`,
+const mealsByArea = async (area) => {
+    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`
     const response = await url
     if(response.status==200){
         const data = await response.json()
@@ -22,3 +22,4 @@ const mealsByArea = async (area){
     }
 
 }
+export {mealsByArea,mealsByCategory}
