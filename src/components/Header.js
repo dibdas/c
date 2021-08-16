@@ -4,9 +4,13 @@ import search from '../containers/Search';
 import styles from '../styles/Header.css';
  const sx = className 
  const Header = () =>(
+     <nav>
      <ul>
      <link >Home</link>
      <link to="/categories">Categories</link>
      </ul>
+     <div><search /></div>
+     </nav>
  )
+ export default Header ;
  
