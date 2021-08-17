@@ -5,16 +5,15 @@ import PropTypes from 'prop-types';
 import grid from '../styles/grid.css';
 import { connect } from 'react-redux';
 import Categories from '../components/Categories';
-
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import Meals from '../components/Meals';
 import { mealsByCategory } from '../API/api';
-import { stat } from 'fs';
 
-const sx = className.bind(grid)
-const Meals =({meals:{meals,status, error}, mealsbycategory,category,changecategory}) =>{
-    const { categorytype } =userParams()
+
+const sx = className
+const Meals =({meals:{meals,status, error}, mealsByCategory,category,changecategory}) =>{
+    const { categorytype } =useParams()
     useEffect(()=>{
         changecategory(categorytype)
         if(status === actionsType.IDLE_MEALS||categorytype){
@@ -63,9 +62,9 @@ const mapStateToProps = (state) => ({
 
   const mapDispatchToProps = (dispatch)=>({
       changecategory: (category) => dispatch(changecategory(category)),
-      mealsbycategory: (category) => dispatch(mealsByCategory(category))
+      mealsbycategory: (category) => dispatch(mealsbyCategory(category))
 
 
   })
-export default connect(mapStateToProps)(Categories);
+export default connect(mapStateToProps,mapDispatchToProps)(Meals);
 
