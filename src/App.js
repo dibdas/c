@@ -8,9 +8,10 @@ function App() {
   return (
     <>
      <BrowserRouter>
-      <Route component={Meals} exact path="/" />
+      <Route component={ Meals} exact path="/" />
       <Route component={Categories} exact path= "/categories" />
       <Route component={MealDetails} exact path = "/meal/:id" />
+      <Route component={Meals} exact path = "/meal/:categorytype" />
     </BrowserRouter>
      
     </>
