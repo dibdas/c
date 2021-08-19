@@ -10,10 +10,9 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import Meals from '../components/Meals';
 import { mealsByCategory } from '../API/api';
-import { stat } from 'fs';
 
-const sx = className.bind(grid)
-const Meals =({meals:{meals,status, error}, mealsbycategory,category,changecategory}) =>{
+const sx = className
+const Meals =({meals:{meals,status, error}, mealsBycategory,category,changecategory}) =>{
     const { categorytype } =userParams()
     useEffect(()=>{
         changecategory(categorytype)
@@ -45,8 +44,8 @@ Meals.defaultProps = {
 
 Meals.prototypes ={
     meals:PropTypes.shape({
-        status: PropTypes.isRequired,
-        error: PropTypes.isRequired,
+        status: PropTypes.string.isRequired,
+        error: PropTypes.string,
         meals:  PropTypes.objectOf(PropTypes.string).isRequired,
     }).isRequired,
     category: PropTypes.string.isRequired,
@@ -67,5 +66,5 @@ const mapStateToProps = (state) => ({
 
 
   })
-export default connect(mapStateToProps)(Categories);
+export default connect(mapStateToProps,mapDispatchToProps)(Meals);
 
