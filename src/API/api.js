@@ -22,4 +22,16 @@ const mealsByArea = async (area) => {
     }
 
 }
-export {mealsByArea,mealsByCategory}
+const mealsById = async (id) => {
+    const url = `www.themealdb.com/api/json/v1/1/lookup.php?${id}`
+    const response = await url
+    if(response.status==200){
+        const data = await response.json()
+        return data 
+    }
+    else{
+        throw Error(404);
+    }
+
+}
+export {mealsByArea,mealsByCategory,mealsById}
