@@ -24,8 +24,37 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
         )
     }
     const Instructions = (instructions)=>{
-        const list_of_instructions= instructions.split(new RegExp('\/ab+c/')).filter((value) => value.length>1)
+        const list_of_instructions= instructions.split(new RegExp('\a/ab+c/')).filter((value) => value.length>1)
+        return (
+            <ul>
+               {list_of_instructions.map((value,index)=> <li key={index}>{value}</li>)}
+            </ul>
+        )
+        return instructions
 
     }
+    const Ingrediants = (meal) =>{
+        const list_of_ingrediants = []
+        for(let i=0;i<16;i+=1){
+            const ingerdiant = meal[`strIngredient${[i]}`];
+            if(ingrediant){
+                const measures = meal[`strMeasure${[i]}`]
+                const measure_elements = (
+                <li key={i}>{measure}<span>{ingrediant}</span></li>
+            )
+            list_of_ingrediants.push(ingrediant)
+            }
+        }
+        return list_of_ingrediants
+    }
+    return(
+        <div>
+            <div>
+                <img src=${meal.strMealThumb}></img>
+            </div>
+        </div>
+    )
+
+    
 
 }
