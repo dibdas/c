@@ -24,13 +24,15 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
         )
     }
     const Instructions = (instructions)=>{
+        if(instructions){
         const list_of_instructions= instructions.split(new RegExp('\a/ab+c/')).filter((value) => value.length>1)
         return (
             <ul>
                {list_of_instructions.map((value,index)=> <li key={index}>{value}</li>)}
             </ul>
         )
-        return instructions
+        }
+        return instructions;
 
     }
     const Ingrediants = (meal) =>{
@@ -50,11 +52,39 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
     return(
         <div>
             <div>
-                <img src=${meal.strMealThumb}></img>
+                <img src={meal.strMealThumb}></img>
+            </div>
+            <h2>${meal.strMeal}</h2>
+            <div>
+                <h3>Ingrediants</h3>
+                <ul>
+                    {Ingrediants(meal)}
+                </ul>
+            </div>
+            <div>
+                <h3>Instructions</h3>
+                <ul>
+                    {Instructions(meal.strInstructions)}
+                </ul>
             </div>
         </div>
     )
 
-    
-
 }
+
+MealsDetails.PropTypes = {
+    meal: PropTypes.shape({
+        status: PropTypes.string.isRequired,
+        error: PropTypes.string,
+        meals:  PropTypes.objectOf(PropTypes.string).isRequired,
+    }).isRequired,
+    dispatch: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state)=> ({
+    meal: state.meal
+})
+
+export default connect (mapStateToProps)(MealsDetails)
+
+
