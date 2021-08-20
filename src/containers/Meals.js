@@ -12,7 +12,7 @@ import { changecategory } from '../actions/constants';
 import { fetchmealsByCategory } from '../actions';
 
 const sx = classNames
-const Meals =({ meals:{ meals, status, error}, fetchmealsByCategory,category,changecategory}) =>{
+const Meals =({meals, status, error,  fetchmealsByCategory, category, changecategory}) =>{
     const { categorytype } = useParams()
     useEffect(()=>{
         changecategory(categorytype)
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => ({
 
   const mapDispatchToProps = (dispatch)=>({
       changecategory: (category) => dispatch(changecategory(category)),
-      mealsbycategory: (category) => dispatch(fetchmealsByCategory(category))
+      fetchmealsByCategory: (category) => dispatch(fetchmealsByCategory(category))
 
 
   })
