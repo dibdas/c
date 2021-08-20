@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Categoriesy =({categories})=>(
     <Link to={`/meals/${categories.strCategory}`}>
-         <img src={ categories.strCategoryThumb } alt={categories} />
+         <img src={ categories.strCategoryThumb } alt={categories.strCategory} />
          <h4>
          {categories.strCategory}
          </h4>
