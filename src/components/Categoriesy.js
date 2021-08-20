@@ -1,15 +1,16 @@
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Categoriesy =({categories})=>(
-    <Link to={`/meals/${categories.strCategory}`}>
-         <img src={ categories.strCategoryThumb } alt={categories.strCategory} />
+const Categoriesy =({category})=>(
+    <Link to={`/meals/${category.strCategory}`}>
+         <img src={ category.strCategoryThumb } alt={category.strCategory} />
          <h4>
-         {categories.strCategory}
+         {category.strCategory}
          </h4>
-        </Link>
+    </Link>
 )
 Categoriesy.prototypes ={
-    categories:  PropTypes.objectOf(PropTypes.string).isRequired,
+    category:  PropTypes.objectOf(PropTypes.string).isRequired,
 }
 export default Categoriesy ;
