@@ -28,7 +28,7 @@ const fetchmealsByCategory = (category) => async(dispatch) => {
     const response = mealsByCategory(category)
     try {
         const data = await response;
-        return dispatch(data.meals)
+        return dispatch(successmeals(data.meals));
     }
     catch (e){
         return dispatch(errormeals('Error while fetching data'));
@@ -44,7 +44,7 @@ const fetchmealsById = (id) => async(dispatch) => {
     const response = mealsById(id)
     try {
         const data = await response;
-        return dispatch(data.meals)
+        return dispatch(successmeals(data.meals));
     }
     catch (e){
         return errormeals(dispatch('Error while fetching data'));
