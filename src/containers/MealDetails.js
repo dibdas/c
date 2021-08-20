@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import {ERROR_MEALS,SUCCESS_MEALS} from '../actions/constants'
+import {ERROR_MEALS} from '../actions/constants'
 import { fetchmealsById } from '../actions';
 
 import { useParams } from 'react-router-dom';
@@ -25,7 +25,7 @@ const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     }
     const Instructions = (instructions)=>{
         if(instructions){
-        const list_of_instructions= instructions.split(new RegExp('\a/ab+c/')).filter((value) => value.length>1)
+        const list_of_instructions= instructions.split(new RegExp('/ab+c/')).filter((value) => value.length>1)
         return (
             <ul>
                {list_of_instructions.map((value,index)=> <li key={index}>{value}</li>)}
@@ -52,7 +52,7 @@ const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     return(
         <div>
             <div>
-                <img src={meals.strMealThumb}></img>
+                <img src={meals.strMealThumb} alt={meals.strMeal}></img>
             </div>
             <h2>${meals.strMeal}</h2>
             <div>
