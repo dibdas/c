@@ -47,13 +47,13 @@ Meals.prototypes ={
     }).isRequired,
     category: PropTypes.string.isRequired,
     changecategory: PropTypes.func.isRequired,
-    mealsbycategory: PropTypes.func.isRequired
+    fetchmealsByCategory: PropTypes.func.isRequired
 
 
 }
 
 const mapStateToProps = (state) => ({
-    meals: state.meals,
+    meals: state.mealsreducer,
     category: state.category,
   });
 
