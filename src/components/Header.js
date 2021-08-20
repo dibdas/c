@@ -1,11 +1,11 @@
 import className from 'classnames';
 import { Link } from 'react-router-dom';
- const sx = className 
+ 
  const Header = () =>(
      <nav>
          <ul>
-             <li><link to="/">Home</link></li>
-             <li><link to="/categories">Categories</link></li>
+             <li><Link to="/">Home</Link></li>
+             <li><Link to="/categories">Categories</Link></li>
          </ul>
      </nav>
  )
