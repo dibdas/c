@@ -1,6 +1,6 @@
 
 
-import {ERROR_MEALS,SUCCESS_MEALS} from '../actions/constants'
+import {ERROR_MEALS} from '../actions/constants'
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';

@@ -1,5 +1,5 @@
 import {mealsByArea,mealsByCategory,mealsById} from '../API/api';
-import  {ERROR_MEALS,SUCCESS_MEALS,CHANGE_CATEGORY,IDLE_MEALS,changecategory,successmeals, errormeals} from './constants'
+import  {errormeals} from './constants'
 
 
 
