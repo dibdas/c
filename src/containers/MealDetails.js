@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+
 
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,7 @@ import { fetchmealsById } from '../actions';
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-const sx = classNames
+
 const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     const {id} = useParams();
     useEffect(()=>{

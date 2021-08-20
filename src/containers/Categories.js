@@ -2,10 +2,10 @@
 import PropTypes from 'prop-types';
 import grid from '../styles/grid.css';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
+
 import Categoriesy from '../components/Categoriesy';
 
-const sx = classNames.bind(grid)
+
 
 const Categories =({categories})=>(
     <div>

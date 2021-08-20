@@ -16,7 +16,7 @@ const fetchmealsByArea = (area) => async(dispatch) => {
         return dispatch(data.meals)
     }
     catch (e){
-        return errormeals(dispatch('Error while fetching data'));
+        return dispatch(errormeals('Error while fetching data'));
     }
 
 }
@@ -31,7 +31,7 @@ const fetchmealsByCategory = (category) => async(dispatch) => {
         return dispatch(data.meals)
     }
     catch (e){
-        return errormeals(dispatch('Error while fetching data'));
+        return dispatch(errormeals('Error while fetching data'));
     }
 
 
@@ -47,7 +47,7 @@ const fetchmealsById = (id) => async(dispatch) => {
         return dispatch(data.meals)
     }
     catch (e){
-        return dispatch('Error while fetching data');
+        return errormeals(dispatch('Error while fetching data'));
     }
 
 

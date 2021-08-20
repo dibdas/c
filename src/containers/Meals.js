@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+
 
 import {ERROR_MEALS,SUCCESS_MEALS} from '../actions/constants'
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { changecategory } from '../actions/constants';
 import { fetchmealsByCategory } from '../actions';
 
-const sx = classNames
+
 const Meals =({meals, status, error,  fetchmealsByCategory, category, changecategory}) =>{
     const { categorytype } = useParams()
     useEffect(()=>{
