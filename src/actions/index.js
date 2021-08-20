@@ -12,6 +12,7 @@ const fetchmealsByArea = (area) => async(dispatch) => {
     const response = mealsByArea(area)
     try {
         const data = await response;
+        console.log(response)
      
         return dispatch(successmeals(data.meals));
     }
@@ -28,6 +29,7 @@ const fetchmealsByCategory = (category) => async(dispatch) => {
     const response = mealsByCategory(category)
     try {
         const data = await response;
+        console.log(response)
         return dispatch(successmeals(data.meals));
     }
     catch (e){
@@ -44,6 +46,7 @@ const fetchmealsById = (id) => async(dispatch) => {
     const response = mealsById(id)
     try {
         const data = await response;
+        console.log(response)
         return dispatch(successmeals(data.meals));
     }
     catch (e){

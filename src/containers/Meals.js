@@ -45,7 +45,7 @@ Meals.prototypes ={
         error: PropTypes.string,
         meals:  PropTypes.objectOf(PropTypes.string).isRequired,
     }).isRequired,
-    category: PropTypes.string.isRequired,
+    category: PropTypes.string,
     changecategory: PropTypes.func.isRequired,
     fetchmealsByCategory: PropTypes.func.isRequired
 
@@ -53,7 +53,7 @@ Meals.prototypes ={
 }
 
 const mapStateToProps = (state) => ({
-    meals: state.mealsreducer,
+    meals: state.meals,
     category: state.category,
   });
 
