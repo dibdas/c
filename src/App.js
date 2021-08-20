@@ -1,5 +1,5 @@
 import { BrowserRouter, Route } from 'react-router-dom';
-import Categories from './components/Categories';
+import Categories from './components/Categoriesy';
 import MealDetails from './containers/MealDetails';
 import Meals from './containers/Meals';
 

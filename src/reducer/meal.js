@@ -1,6 +1,6 @@
 
-import {ERROR_MEALS,SUCCESS_MEALS}from '../actions/constants'
-const defaultState={ meal:{},status:MEAL,error:null}
+import {ERROR_MEALS,IDLE_MEALS,SUCCESS_MEALS}from '../actions/constants'
+const defaultState={ meal:{},status:IDLE_MEALS,error:null}
 
 const mealreducer = (state= defaultState,action)=>{
     switch(action.type){

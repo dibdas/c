@@ -1,15 +1,12 @@
 import className from 'classnames';
 import { Link } from 'react-router-dom';
-import search from '../containers/Search';
-import styles from '../styles/Header.css';
  const sx = className 
  const Header = () =>(
      <nav>
-     <ul>
-     <link >Home</link>
-     <link to="/categories">Categories</link>
-     </ul>
-     <div><search /></div>
+         <ul>
+             <li><link to="/">Home</link></li>
+             <li><link to="/categories">Categories</link></li>
+         </ul>
      </nav>
  )
  export default Header ;

@@ -1,25 +1,24 @@
 import className from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import search from '../containers/Search';
-import styles from '../styles/Meal.css';
+
 const sx = className 
 
-const Meals = ({meal}) => (
+const MealsC = ({meal}) => (
     <div>
          <Link to={`/meal/${meal.idMeal}`}>
-    <img className={sx('card-img')} src={meal.strMealThumb} alt={meal.strMeal} />
-    <h4 className={cx('card-title')}>
+    <img src={meal.strMealThumb} />
+    <h4>
           {meal.strMeal}
         </h4>
         </Link>
     </div>
     
 )
-Meals.prototypes ={
+MealsC.propTypes ={
     meal:  PropTypes.objectOf(PropTypes.string).isRequired,
 }
 
-export default Meals;
+export default MealsC;
 
 

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import grid from '../styles/grid.css';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import Categories from '../components/Categories';
+import Categoriesy from '../components/Categoriesy';
 
 const sx = classNames.bind(grid)
 
 const Categories =({categories})=>(
     <div>
-        {categories ? categories.map((category) => <Categories key={categories.idCategory} categories={categories} />) : 'No categories'}
+        {categories ? categories.map((category) => <Categoriesy key={categories.idCategory} categories={categories} />) : 'No categories'}
     </div>
 
 )

@@ -1,37 +1,34 @@
-import className from 'classnames';
-import { Link } from 'react-router-dom';
-// import styles from '../styles/Header.css';
+import classNames from 'classnames';
+
+import {ERROR_MEALS,SUCCESS_MEALS} from '../actions/constants'
 import PropTypes from 'prop-types';
-import grid from '../styles/grid.css';
+
 import { connect } from 'react-redux';
-import Categories from '../components/Categories';
+import MealsC from '../components/MealsC';
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import Meals from '../components/Meals';
-import { mealsByCategory } from '../API/api';
+import { changecategory } from '../actions/constants';
+import { fetchmealsByCategory } from '../actions';
 
-const sx = className
-const Meals =({meals:{meals,status, error}, mealsBycategory,category,changecategory}) =>{
-    const { categorytype } =userParams()
+const sx = classNames
+const Meals =({ meals:{ meals, status, error}, fetchmealsByCategory,category,changecategory}) =>{
+    const { categorytype } = useParams()
     useEffect(()=>{
         changecategory(categorytype)
-        if(status === actionsType.IDLE_MEALS||categorytype){
-            mealsByCategory(categorytype || 'chicken')
-        }
+            fetchmealsByCategory(categorytype || 'chicken')   
     },[category])
-    if(status === actionsType.ERROR_MEALS){
+    if(status === ERROR_MEALS){
         return(
             <div>
                 Error:{error}
                 </div>
-
         )
     }
     else {
         return(
             <div>
-                {meals && meals.map((meal)=> <Meal key={meal.idMeal} meal={meal} />)}
+                {meals && meals.map((meal)=> <MealsC key={meal.idMeal} meal={meal} />)}
             </div>
         )
     }
@@ -62,7 +59,7 @@ const mapStateToProps = (state) => ({
 
   const mapDispatchToProps = (dispatch)=>({
       changecategory: (category) => dispatch(changecategory(category)),
-      mealsbycategory: (category) => dispatch(mealsByCategory(category))
+      mealsbycategory: (category) => dispatch(fetchmealsByCategory(category))
 
 
   })

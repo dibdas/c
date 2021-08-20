@@ -1,21 +1,21 @@
-import className from 'classnames';
-import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import Categories from '../components/Categories';
+import {ERROR_MEALS,SUCCESS_MEALS} from '../actions/constants'
+import { fetchmealsById } from '../actions';
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-
-import { mealsByCategory } from '../API/api';
-const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
+const sx = classNames
+const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     const {id} = useParams();
     useEffect(()=>{
-        if(id!==meal.idMeal)
-        dispatch(mealbyId(id));
+        if(id!==meals.idMeal)
+        dispatch(fetchmealsById(id));
     },[])
-    if(status === actionsType.ERROR_MEALS){
+    if(status === ERROR_MEALS){
         return(
             <div>
                 Error:{error}
@@ -38,13 +38,13 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
     const Ingrediants = (meal) =>{
         const list_of_ingrediants = []
         for(let i=0;i<16;i+=1){
-            const ingerdiant = meal[`strIngredient${[i]}`];
+            const ingrediant = meal[`strIngredient${[i]}`];
             if(ingrediant){
                 const measures = meal[`strMeasure${[i]}`]
                 const measure_elements = (
-                <li key={i}>{measure}<span>{ingrediant}</span></li>
+                <li key={i}>{measures}<span>{ingrediant}</span></li>
             )
-            list_of_ingrediants.push(ingrediant)
+            list_of_ingrediants.push(measure_elements)
             }
         }
         return list_of_ingrediants
@@ -52,19 +52,19 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
     return(
         <div>
             <div>
-                <img src={meal.strMealThumb}></img>
+                <img src={meals.strMealThumb}></img>
             </div>
-            <h2>${meal.strMeal}</h2>
+            <h2>${meals.strMeal}</h2>
             <div>
                 <h3>Ingrediants</h3>
                 <ul>
-                    {Ingrediants(meal)}
+                    {Ingrediants(meals)}
                 </ul>
             </div>
             <div>
                 <h3>Instructions</h3>
                 <ul>
-                    {Instructions(meal.strInstructions)}
+                    {Instructions(meals.strInstructions)}
                 </ul>
             </div>
         </div>
@@ -72,7 +72,7 @@ const MealsDetails= ({{ meals:{meals,status, error},dispatch }) =>{
 
 }
 
-MealsDetails.PropTypes = {
+MealsDetails.propTypes = {
     meal: PropTypes.shape({
         status: PropTypes.string.isRequired,
         error: PropTypes.string,

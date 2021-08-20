@@ -1,5 +1,6 @@
 const ERROR_MEALS ='ERROR_MEALS' 
 const SUCCESS_MEALS = 'SUCCESS_MEALS'
+const IDLE_MEALS = 'IDLE_MEALS'
 const CHANGE_CATEGORY = ' CHANGE_CATEGORY';
 const successmeals = (data) => ({
     type:'SUCCESS_MEALS',
@@ -14,4 +15,4 @@ const changecategory = (category)=>({
     category
 
 })
-export {ERROR_MEALS,SUCCESS_MEALS,CHANGE_CATEGORY,changecategory,successmeals, errormeals}
+export {ERROR_MEALS,SUCCESS_MEALS,CHANGE_CATEGORY,IDLE_MEALS,changecategory,successmeals, errormeals}
