@@ -17,7 +17,7 @@ const Meals =({meals, status, error,  fetchmealsByCategory, category, changecate
     useEffect(()=>{
         changecategory(categorytype)
             fetchmealsByCategory(categorytype || 'chicken')   
-    },[category])
+    })
     if(status === ERROR_MEALS){
         return(
             <div>

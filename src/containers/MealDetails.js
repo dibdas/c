@@ -14,7 +14,7 @@ const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     useEffect(()=>{
         if(id!==meals.idMeal)
         dispatch(fetchmealsById(id));
-    },[])
+    })
     if(status === ERROR_MEALS){
         return(
             <div>
