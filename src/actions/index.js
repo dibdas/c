@@ -1,5 +1,5 @@
 import {mealsByArea,mealsByCategory,mealsById} from '../API/api';
-import  {errormeals} from './constants'
+import  {errormeals,successmeals} from './constants'
 
 
 
@@ -13,7 +13,7 @@ const fetchmealsByArea = (area) => async(dispatch) => {
     try {
         const data = await response;
      
-        return dispatch(data.meals)
+        return dispatch(successmeals(data.meals));
     }
     catch (e){
         return dispatch(errormeals('Error while fetching data'));
