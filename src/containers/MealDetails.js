@@ -37,7 +37,7 @@ const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
     }
     const Ingrediants = (meal) =>{
         const list_of_ingrediants = []
-        for(let i=0;i<16;i+=1){
+        for(let i=0;i<20;i+=1){
             const ingrediant = meal[`strIngredient${[i]}`];
             if(ingrediant){
                 const measures = meal[`strMeasure${[i]}`]
