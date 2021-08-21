@@ -1,13 +1,18 @@
 
+import 'react-bootstrap';
 import { Link } from 'react-router-dom';
  
  const Header = () =>(
-     <nav>
-         <ul>
-             <li><Link to="/">Home</Link></li>
-             <li><Link to="/categories">Categories</Link></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="container-fluid">
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
+           <li><Link to="/">Home</Link></li>
+           <li><Link to="/categories">Categories</Link></li>
          </ul>
-     </nav>
+       </div>
+     </div>  
+   </nav>
  )
  export default Header ;
  

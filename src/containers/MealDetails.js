@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 
 const MealsDetails= ({meals,status, error,dispatch }) => {
     const {id} = useParams();
+    console.log(id)
     useEffect(()=>{
         if(id!==meals.idMeal)
         dispatch(fetchmealsById(id));
