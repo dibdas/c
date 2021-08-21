@@ -22,10 +22,11 @@ const defaultState={ meals:[ {
 const mealsreducer = (state= defaultState,action)=>{
     switch(action.type){
         case SUCCESS_MEALS:
+            console.log(action);
             return {
                 ...state,
                 status: SUCCESS_MEALS,
-                meal: action.data,
+                meals: action.data,
                 error: null
             }
             case ERROR_MEALS:

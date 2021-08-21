@@ -1,5 +1,3 @@
-
-
 import {ERROR_MEALS} from '../actions/constants'
 import PropTypes from 'prop-types';
 
@@ -11,13 +9,12 @@ import { useEffect } from 'react';
 import { changecategory } from '../actions/constants';
 import { fetchmealsByCategory } from '../actions';
 
-
-const Meals =({meals, status, error,  fetchmealsByCategory, category, changecategory}) =>{
+const Meals =({meals, status, error,  fetchmealsByCategory, changecategory}) =>{
     const { categorytype } = useParams()
     useEffect(()=>{
         changecategory(categorytype)
-            fetchmealsByCategory(categorytype || 'chicken')   
-    })
+        fetchmealsByCategory(categorytype || 'chicken');
+    }, []);
     if(status === ERROR_MEALS){
         return(
             <div>
@@ -33,8 +30,6 @@ const Meals =({meals, status, error,  fetchmealsByCategory, category, changecate
         )
     }
 }
-
-
 Meals.defaultProps = {
     category: 'chicken',
   };
@@ -45,23 +40,18 @@ Meals.prototypes ={
         error: PropTypes.string,
         meals:  PropTypes.objectOf(PropTypes.string).isRequired,
     }).isRequired,
-    category: PropTypes.string,
+    category: PropTypes.string.isRequired,
     changecategory: PropTypes.func.isRequired,
     fetchmealsByCategory: PropTypes.func.isRequired
-
-
 }
-
 const mapStateToProps = (state) => ({
-    meals: state.meals,
+    meals: state.mealsreducer.meals,
     category: state.category,
-  });
-
-  const mapDispatchToProps = (dispatch)=>({
+});
+const mapDispatchToProps = (dispatch)=>({
       changecategory: (category) => dispatch(changecategory(category)),
       fetchmealsByCategory: (category) => dispatch(fetchmealsByCategory(category))
 
 
   })
 export default connect(mapStateToProps,mapDispatchToProps)(Meals);
-

@@ -9,7 +9,7 @@ import { fetchmealsById } from '../actions';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
+const MealsDetails= ({meals,status, error,dispatch }) => {
     const {id} = useParams();
     useEffect(()=>{
         if(id!==meals.idMeal)
@@ -33,7 +33,6 @@ const MealsDetails= ({ meals:{ meals,status, error},dispatch }) => {
         )
         }
         return instructions;
-
     }
     const Ingrediants = (meal) =>{
         const list_of_ingrediants = []
