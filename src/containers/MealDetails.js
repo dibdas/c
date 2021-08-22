@@ -1,7 +1,5 @@
 
-
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import {ERROR_MEALS} from '../actions/constants'
 import { fetchmealsById } from '../actions';
@@ -9,11 +7,9 @@ import { fetchmealsById } from '../actions';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const MealsDetails= ({meals,status, error,dispatch }) => {
+const MealsDetails= ({ meal, status, error,dispatch }) => {
     const {id} = useParams();
-    console.log(id)
     useEffect(()=>{
-        if(id!==meals.idMeal)
         dispatch(fetchmealsById(id));
     })
     if(status === ERROR_MEALS){
@@ -34,7 +30,9 @@ const MealsDetails= ({meals,status, error,dispatch }) => {
         )
         }
         return instructions;
+
     }
+
     const Ingrediants = (meal) =>{
         const list_of_ingrediants = []
         for(let i=0;i<20;i+=1){
@@ -49,22 +47,26 @@ const MealsDetails= ({meals,status, error,dispatch }) => {
         }
         return list_of_ingrediants
     }
-    return(
+
+    if (!meal)
+        return "Loading"
+
+    return (
         <div>
             <div>
-                <img src={meals.strMealThumb} alt={meals.strMeal}></img>
+                <img src={meal.strMealThumb} alt={meal.strMeal}></img>
             </div>
-            <h2>${meals.strMeal}</h2>
+            <h2>${meal.strMeal}</h2>
             <div>
                 <h3>Ingrediants</h3>
                 <ul>
-                    {Ingrediants(meals)}
+                    {Ingrediants(meal)}
                 </ul>
             </div>
             <div>
                 <h3>Instructions</h3>
                 <ul>
-                    {Instructions(meals.strInstructions)}
+                    {Instructions(meal.strInstructions)}
                 </ul>
             </div>
         </div>
@@ -74,17 +76,14 @@ const MealsDetails= ({meals,status, error,dispatch }) => {
 
 MealsDetails.propTypes = {
     meal: PropTypes.shape({
-        status: PropTypes.string.isRequired,
         error: PropTypes.string,
-        meals:  PropTypes.objectOf(PropTypes.string).isRequired,
-    }).isRequired,
+        meal:  PropTypes.objectOf(PropTypes.string),
+    }),
     dispatch: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state)=> ({
-    meal: state.meal
-})
+    meal: state.mealreducer.meal[0],
+});
 
 export default connect (mapStateToProps)(MealsDetails)
-
-

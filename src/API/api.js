@@ -1,10 +1,9 @@
 const mealsByCategory = async (category)=>{
     const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
     const response = await fetch(url)
-    console.log(response)
     if(response.status===200){
         const data = await response.json()
-        return data 
+        return data
     }
     else{
         throw Error(404);
@@ -16,7 +15,7 @@ const mealsByArea = async (area) => {
     const response = await fetch(url)
     if(response.status===200){
         const data = await response.json()
-        return data 
+        return data
     }
     else{
         throw Error(404);
@@ -24,12 +23,11 @@ const mealsByArea = async (area) => {
 
 }
 const mealsById = async (id) => {
-    const url = `www.themealdb.com/api/json/v1/1/lookup.php?${id}`
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     const response = await fetch(url)
-    console.log(response)
     if(response.status===200){
         const data = await response.json()
-        return data 
+        return data
     }
     else{
         throw Error(404);

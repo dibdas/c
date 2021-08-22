@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Categoriesy =({category})=>(
     <div className="d-flex">
-    <Link to={`/meals/${category.strCategory}`} className="w-100">
+    <Link to={`/meals/${category.strCategory}`}>
          <img src={ category.strCategoryThumb } alt={category.strCategory} />
          <h4>
          {category.strCategory}
