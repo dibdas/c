@@ -1,22 +1,7 @@
-import {mealsByArea,mealsByCategory,mealsById} from '../API/api';
+import {mealsByCategory,mealsById} from '../API/api';
 import  {errormeals,successmeals, successmeal} from './constants'
 const SUCCESS_MEAL ='SUCCESS_MEALS';
 
-const fetchmealsByArea = (area) => async(dispatch) => {
-    dispatch({
-        type: SUCCESS_MEAL
-    })
-    const response = mealsByArea(area)
-    try {
-        const data = await response;
-
-        return dispatch(successmeals(data.meals));
-    }
-    catch (e){
-        return dispatch(errormeals('Error while fetching data'));
-    }
-
-}
 
 const fetchmealsByCategory = (category) => async(dispatch) => {
     dispatch({
@@ -50,4 +35,4 @@ const fetchmealsById = (id) => async(dispatch) => {
 
 }
 
-export {fetchmealsByArea, fetchmealsByCategory,fetchmealsById}
+export {fetchmealsByCategory,fetchmealsById}
