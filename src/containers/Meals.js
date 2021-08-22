@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {ERROR_MEALS} from '../actions/constants'
 import PropTypes from 'prop-types';
 
