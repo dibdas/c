@@ -1,14 +1,12 @@
 
-import {ERROR_MEALS,IDLE_MEALS,SUCCESS_MEALS}from '../actions/constants'
+import {ERROR_MEALS,IDLE_MEALS,SUCCESS_MEAL} from '../actions/constants'
 const defaultState={ meal:{},status:IDLE_MEALS,error:null}
-
 const mealreducer = (state= defaultState,action)=>{
     switch(action.type){
-        case SUCCESS_MEALS:
-            console.log(action);
+        case SUCCESS_MEAL:
             return {
                 ...state,
-                status: SUCCESS_MEALS,
+                status: SUCCESS_MEAL,
                 meal: action.data,
                 error: null
             }
