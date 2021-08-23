@@ -42,7 +42,7 @@ test('should test for error text', () => {
     </Provider>,
   );
 
-  expect(screen.getByText(/something went wrong./)).toBeInTheDocument();
+  expect(screen.getByText(/error meals /)).toBeInTheDocument();
 });
 
 test('should test for loaded meals', () => {
