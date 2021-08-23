@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 
 const MealsC = ({meal}) => (
-    <div>
-        <Link to={`/meal/${meal.idMeal}`}><img src={meal.strMealThumb} alt={meal.strMeal}/><h4>{meal.strMeal}</h4></Link>
+    <div className="container row ">
+        <Link to={`/meal/${meal.idMeal}`}><img src={meal.strMealThumb} className="col-3" alt={meal.strMeal}/><h4 className="mx-2">{meal.strMeal}</h4></Link>
     </div>
     
 )
