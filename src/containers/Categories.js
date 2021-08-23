@@ -20,7 +20,6 @@ Categories.prototypes ={
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     categories: state.categoryreducer,
   }

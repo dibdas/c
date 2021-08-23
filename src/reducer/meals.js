@@ -77,7 +77,6 @@ const defaultState={ meals:[ {
 const mealsreducer = (state= defaultState,action)=>{
     switch(action.type){
         case SUCCESS_MEALS:
-            console.log(action);
             return {
                 ...state,
                 status: SUCCESS_MEALS,
