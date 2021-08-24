@@ -14,3 +14,17 @@ it('render component', () => {
   );
   expect(getByText('chicken')).toBeInTheDocument();
 });
+
+test('do not render component', () => {
+  const category = {
+    strCategory: 'jksd',
+    strCategoryThumb: 'image',
+  };
+  const { queryByText } = render(
+    <BrowserRouter>
+      <Categoriesy category={category} />
+    </BrowserRouter>,
+  );
+
+  expect(queryByText('i, pigeon')).not.toBeInTheDocument();
+});

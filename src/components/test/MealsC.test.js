@@ -14,6 +14,20 @@ test('render component', () => {
     </MemoryRouter>,
   );
 
-  // expect(container.textContent).toMatch(food.strMeal);
   expect(getByText('Meal name')).toBeInTheDocument();
+});
+
+test('do not render component', () => {
+  const food = {
+    idMeal: '487',
+    strMeal: 'piegon',
+    strMealThumb: 'image path',
+  };
+  const { queryByText } = render(
+    <MemoryRouter>
+      <MealsC meal={food} />
+    </MemoryRouter>,
+  );
+
+  expect(queryByText('i, pigeon')).not.toBeInTheDocument();
 });
