@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Categoriesy from '../components/Categoriesy';
 
 const Categories = ({ categories }) => (
-  <div>
+  <div className="row">
     {categories ? categories.map((category) => <Categoriesy key={categories.idCategory} category={category} />) : 'No categories'}
   </div>
 

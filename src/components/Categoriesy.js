@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Categoriesy = ({ category }) => (
-  <div>
+  <div className="row">
     <Link to={`/meals/${category.strCategory}`}>
-      <img src={category.strCategoryThumb} alt={category.strCategory} />
+      <img src={category.strCategoryThumb} alt={category.strCategory} className="col" />
       <h4>
         {category.strCategory}
       </h4>
