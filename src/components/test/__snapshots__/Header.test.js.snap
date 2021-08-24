@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the snapshot 1`] = `
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light"
+>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav"
+    >
+      <ul
+        class="navbar-nav"
+      >
+        <li
+          class="mx-2"
+        >
+          <a
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/categories"
+          >
+            Categories
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

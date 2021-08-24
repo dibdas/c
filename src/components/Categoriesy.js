@@ -1,18 +1,19 @@
+/* eslint-disable react/prop-types */
 
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Categoriesy =({category})=>(
-    <div className="d-flex">
+const Categoriesy = ({ category }) => (
+  <div>
     <Link to={`/meals/${category.strCategory}`}>
-         <img src={ category.strCategoryThumb } alt={category.strCategory} />
-         <h4>
-         {category.strCategory}
-         </h4>
+      <img src={category.strCategoryThumb} alt={category.strCategory} />
+      <h4>
+        {category.strCategory}
+      </h4>
     </Link>
-    </div>
-)
-Categoriesy.prototypes ={
-    category:  PropTypes.objectOf(PropTypes.string).isRequired,
-}
-export default Categoriesy ;
+  </div>
+);
+Categoriesy.prototypes = {
+  category: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+export default Categoriesy;

@@ -1,7 +1,7 @@
-import rootReducer from "./index"
 import thunk from 'redux-thunk';
 
-import { applyMiddleware,createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from './index';
 
 const store = createStore(
   rootReducer,

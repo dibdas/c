@@ -1,58 +1,57 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import {ERROR_MEALS} from '../actions/constants'
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import MealsC from '../components/MealsC';
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { changecategory } from '../actions/constants';
+import MealsC from '../components/MealsC';
+import { ERROR_MEALS, changecategory } from '../actions/constants';
 import { fetchmealsByCategory } from '../actions';
 
-const Meals =({meals, status, error,  fetchmealsByCategory, changecategory}) =>{
-    const { categorytype } = useParams()
-    useEffect(()=>{
-        changecategory(categorytype)
-        fetchmealsByCategory(categorytype || 'chicken');
-    },[]);
-    if(status === ERROR_MEALS){
-        return(
-            <div>
-                Error:{error}
-                </div>
-        )
-    }
-    else {
-        return(
-            <div>
-                {meals && meals.map((meal)=> <MealsC key={meal.idMeal} meal={meal} />)}
-            </div>
-        )
-    }
-}
+const Meals = ({
+  meals, status, error, fetchmealsByCategory, changecategory,
+}) => {
+  const { categorytype } = useParams();
+  useEffect(() => {
+    changecategory(categorytype);
+    fetchmealsByCategory(categorytype || 'chicken');
+  }, []);
+  if (status === ERROR_MEALS) {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
+  return (
+    <div>
+      {meals && meals.map((meal) => <MealsC key={meal.idMeal} meal={meal} />)}
+    </div>
+  );
+};
 Meals.defaultProps = {
-    category: 'chicken',
-  };
+  category: 'chicken',
+};
 
-Meals.prototypes ={
-    meals:PropTypes.shape({
-        status: PropTypes.string.isRequired,
-        error: PropTypes.string,
-        meals:  PropTypes.objectOf(PropTypes.string).isRequired,
-    }).isRequired,
-    category: PropTypes.string.isRequired,
-    changecategory: PropTypes.func.isRequired,
-    fetchmealsByCategory: PropTypes.func.isRequired
-}
+Meals.prototypes = {
+  meals: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.string,
+    meals: PropTypes.objectOf(PropTypes.string).isRequired,
+  }).isRequired,
+  category: PropTypes.string.isRequired,
+  changecategory: PropTypes.func.isRequired,
+  fetchmealsByCategory: PropTypes.func.isRequired,
+};
 const mapStateToProps = (state) => ({
-    meals: state.mealsreducer.meals,
-    category: state.category,
+  meals: state.mealsreducer.meals,
+  category: state.category,
 });
-const mapDispatchToProps = (dispatch)=>({
-      changecategory: (category) => dispatch(changecategory(category)),
-      fetchmealsByCategory: (category) => dispatch(fetchmealsByCategory(category))
+const mapDispatchToProps = (dispatch) => ({
+  changecategory: (category) => dispatch(changecategory(category)),
+  fetchmealsByCategory: (category) => dispatch(fetchmealsByCategory(category)),
 
-
-  })
-export default connect(mapStateToProps,mapDispatchToProps)(Meals);
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Meals);
