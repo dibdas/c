@@ -1,5 +1,6 @@
 # Catalogue
 Project to show different mealsusing mealdb API.
+![Catlogue](./assets/s1.png')
 ## Built with
 - React.js
 
