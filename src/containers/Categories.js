@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Categoriesy from '../components/Categoriesy';
 
 const Categories = ({ categories }) => (
-  <div className="row">
+  <div className="d-flex px-3 flex-row flex-wrap">
     {categories ? categories.map((category) => <Categoriesy key={categories.idCategory} category={category} />) : 'No categories'}
   </div>
 
